@@ -27,10 +27,15 @@ export class AuthServiceService {
   }
 
   getProfils() {
-    return this.http.get('/api/admin/profils');
+    return this.http.get('http://localhost:8000/api/admin/profils');
   }
 
   addProfil(data){
-    return this.http.post('/api/admin/profils', data);
+    return this.http.post('http://localhost:8000/api/admin/profils', data);
+  }
+
+
+  getUsers(){
+    return this.http.get('http://localhost:8000/api/admin/users');
   }
 }
