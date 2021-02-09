@@ -1,0 +1,16 @@
+<div class="col-md-2 col-sm-12 menu-vertical pt-5 position-fixed">
+    <div class="menu-vertical-item m-2 border border-primary font-weight-bold nav-link bg-primary">
+        
+        <a class="text-light" [routerLink]="['/admin/users']" routerLinkActive="router-link-active"> Utilisateurs </a>
+    </div>
+    <div class="menu-vertical-item m-2 border border-primary font-weight-bold nav-link ">
+        <a [routerLink]="['/admin/profil']" routerLinkActive="router-link-active"> Profils </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('li.active').removeClass('active');
+        $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
+    });
+</script>

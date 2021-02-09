@@ -1,0 +1,49 @@
+<div class="row">
+    <!-- Titre du tableau -->
+    <div class="col-8">
+        <div class="row">
+            <div class="col-md-11">
+                <h2 class="text-center pt-5"> Liste des Profils</h2>
+            </div>
+            <div class="col-md-1"><i class="fa fa-user" aria-hidden="true"></i></div>
+        </div>
+        <div class="row">
+            <table class="table table-bordered table-light">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Libelle</th>
+                        <th scope="col"> Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let profil of profils">
+                        <th scope="row"> {{ profil.id }} </th>
+                        <th> {{ profil.libelle }} </th>
+                        <th><i class="fas fa-pencil-alt"></i> </th>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+    <div class="col-2 text-center pt-5 ml-5">
+        <h3>Ajouter Profil</h3>
+        <form action="" [formGroup]="addProfilForm" (ngSubmit)="addProcess()" >
+            <label for="libelle">Libelle</label>
+            <input type="text" name="libelle" formControlName="libelle" class="form-control">
+            <br>
+            <button class="bg-primary form-control text-light font-weight-bold" type="submit">
+                Ajouter Profil
+            </button>
+        </form>
+    </div>
+
+</div>

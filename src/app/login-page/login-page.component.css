@@ -1,0 +1,41 @@
+body{
+    font-family: "Ubuntu";
+}
+
+.container-fluid {
+    padding: 7% 10%;
+  }
+  
+  .login {
+    text-align: center;
+  }
+  
+  .login-description .login-text {
+    text-align: center;
+    padding-left: 40%;
+    padding-top: 18%;
+  }
+  
+  .login-text h1 {
+    font-family: "Arvo";
+    font-size: 4em;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+  
+  .login-form {
+    padding: 5%;
+    text-align: center;
+    width: 68%;
+    height: 100%;
+    background-color: white;
+  }
+  
+  .login-form .img-logo {
+    margin-bottom: 13%;
+  }
+  
+  .login-form .img-logo img {
+    width: 57%;
+    height: auto;
+  }

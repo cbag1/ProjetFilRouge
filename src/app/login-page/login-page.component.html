@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row login">
+        <div class="col-md-6 login-description ">
+
+            <div class="login-text  pl-5">
+                <h1> " Qui code bug, <br> Qui bug code "</h1>
+            </div>
+            <div class="login-text-author m-3 text-right pr-5">
+                <b>Pape Djiby Niang</b> <br>
+                <em>Formateur à Sonatel Academy</em>
+            </div>
+        </div>
+        <div class="col-md-6 pl-5">
+            <div class="login-form shadow rounded">
+                <div class="img-logo">
+                    <img src="../../assets/img/logo.jpg" alt="Logo de Sonatel Academy">
+                </div>
+                <form action="" [formGroup]="formGroup" (ngSubmit)="loginProcess()" >
+                    <input class="form-control" formControlName="username" type="text" name="username" id="username" placeholder="Username">
+                    <br>
+                    <input class="form-control" formControlName="password" type="password" name="password" id="password" placeholder="Password">
+
+                    <button type="submit" class="form-control bg-success font-weight-bold mt-4 mb-4 text-light">Se
+                        connecter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
