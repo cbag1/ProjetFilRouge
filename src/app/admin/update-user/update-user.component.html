@@ -1,0 +1,32 @@
+<div class="col-12">
+    <form action="" [formGroup]="updateUserForm" (ngSubmit)="addProcess()">
+        <h3>Modifier User</h3>
+        <label for="prenom">Prénom</label>
+        <input type="text" name="prenom" [formControlName]="'prenom'" class="form-control">
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" [formControlName]="'nom'" class="form-control">
+        <label for="username">Username</label>
+        <input type="text" name="username" [formControlName]="'username'" class="form-control">
+        <label for="email"> Email </label>
+        <input type="email" name="email" [formControlName]="'email'" class="form-control">
+        <label for="telephone"> Telephone </label>
+        <input type="text" name="telephone" [formControlName]="'telephone'" class="form-control">
+        <label for="password"> Password </label>
+        <input type="text" name="password" value="cbag" [formControlName]="'password'" class="form-control">
+        <label for="profil"> Profil </label>
+        <select name="profil" [formControlName]="'profil'"  id="profil" class="form-control">
+            <option value="/api/admin/profils/1"> CM </option>
+            <option value="/api/admin/profils/2"> Formateur </option>
+            <option value="/api/admin/profils/3"> Apprenant </option>
+            <option value="/api/admin/profils/4"> Admin </option>
+        </select>
+
+        <br>
+        <input type="file" [formControlName]="'avatar'">
+        <br>
+        <button class="bg-primary form-control text-light font-weight-bold" type="submit">Ajouter</button>
+    </form>
+
+
+
+</div>

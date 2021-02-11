@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Profil } from './admin/profil/profil.model';
+import { User } from './add-user/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,12 +33,27 @@ export class AuthServiceService {
     return this.http.get('http://localhost:8000/api/admin/profils');
   }
 
-  addProfil(data){
+  addProfil(data) {
+    // @ts-ignore
     return this.http.post('http://localhost:8000/api/admin/profils', data);
   }
 
-
-  getUsers(){
+  getUsers() {
     return this.http.get('http://localhost:8000/api/admin/users');
   }
+
+  addUser(data) {
+    return this.http.post('http://localhost:8000/api/admin/users', data);
+  }
+
+  updateOneUser(id: number, data) {
+
+    return this.http.put(`/api/admin/users/${id}`, data);
+  }
+
+  getbyId(id: number) {
+    return this.http.get(`/api/admin/users/${id}`);
+  }
+
+
 }

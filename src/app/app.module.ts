@@ -21,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UpdateUserComponent } from './admin/update-user/update-user.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -39,10 +41,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProfilSortieComponent,
     GroupeTagsComponent,
     ReferentielComponent,
-    PromosComponent
+    PromosComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

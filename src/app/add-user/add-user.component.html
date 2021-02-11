@@ -1,58 +1,71 @@
 <div class="row">
     <div class="col-9">
 
-    <!-- Titre du tableau -->
-    <div class="row">
-        <div class="col-md-11">
-            <h2 class="text-center pt-5"> Liste des Utilisateurs</h2>
+        <!-- Titre du tableau -->
+        <div class="row">
+            <div class="col-md-11">
+                <h2 class="text-center pt-5"> Liste des Utilisateurs</h2>
+            </div>
+            <div class="col-md-1"><i class="fa fa-user" aria-hidden="true"></i></div>
         </div>
-        <div class="col-md-1"><i class="fa fa-user" aria-hidden="true"></i></div>
-    </div>
-    <div class="row">
-        <table class="table table-bordered table-light">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Prenom</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Username</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let user of users">
-                    <th scope="row"> {{ user.id }} </th>
-                    <th> {{ user.prenom }} </th>
-                    <th> {{ user.nom }} </th>
-                    <th> {{ user.username }} </th>
-                    <th><i class="fas fa-pencil-alt"></i> </th>
+        <div class="row">
+            <table class="table table-bordered table-light">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Username</th>
+                        <th> Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <th scope="row"> {{ user.id }} </th>
+                        <th> {{ user.prenom }} </th>
+                        <th> {{ user.nom }} </th>
+                        <th> {{ user.username }} </th>
+                        <th> <a [routerLink]="['/admin/updateUser', user.id]" routerLinkActive="router-link-active"> Modifier </a>
+                        </th>
 
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                        <!-- <th><i class="fas fa-pencil-alt"></i> </th> -->
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="col-3">
+        <form action="" [formGroup]="addUserForm" (ngSubmit)="addProcess()">
+            <h3>Ajouter User</h3>
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" [formControlName]="'prenom'" class="form-control">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" [formControlName]="'nom'" class="form-control">
+            <label for="username">Username</label>
+            <input type="text" name="username" [formControlName]="'username'" class="form-control">
+            <label for="email"> Email </label>
+            <input type="email" name="email" [formControlName]="'email'" class="form-control">
+            <label for="telephone"> Telephone </label>
+            <input type="text" name="telephone" [formControlName]="'telephone'" class="form-control">
+            <label for="password"> Password </label>
+            <input type="text" name="password" value="cbag" [formControlName]="'password'" class="form-control">
+            <label for="profil"> Profil </label>
+            <select name="profil" [formControlName]="'profil'" id="profil" class="form-control">
+                <option value="/api/admin/profils/1"> CM </option>
+                <option value="/api/admin/profils/2"> Formateur </option>
+                <option value="/api/admin/profils/3"> Apprenant </option>
+                <option value="/api/admin/profils/4"> Admin </option>
+            </select>
 
-        <h3>Ajouter User</h3>
-        <label for="prenom">Prénom</label>
-        <input type="text" name="prenom" class="form-control">
-        <label for="nom">Nom</label>
-        <input type="text" name="nom" class="form-control">
-        <label for="username">Username</label>
-        <input type="text" name="username" class="form-control">
-        <label for="email"> Email </label>
-        <input type="email" name="email" class="form-control">
-        <label for="profil"> Profil </label>
-        <select name="profil" id="profil" class="form-control">
-            <option value=""> CM </option>
-            <option value=""> Administration </option>
-            <option value=""> Formateur </option>
-            <option value=""> Apprenant </option>
-            <option value=""> Admin </option>
-        </select>
-        <br>
-        <button class="bg-primary form-control text-light font-weight-bold" type="submit">Ajouter</button>
+            <br>
+            <input type="file" (change)="onSelectFile($event)" [formControlName]="'avatar'">
+            <br>
+            <button class="bg-primary form-control text-light font-weight-bold" type="submit">Ajouter</button>
+        </form>
+
+
 
     </div>
 </div>

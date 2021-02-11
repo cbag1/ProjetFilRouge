@@ -38,7 +38,7 @@
         <h3>Ajouter Profil</h3>
         <form action="" [formGroup]="addProfilForm" (ngSubmit)="addProcess()" >
             <label for="libelle">Libelle</label>
-            <input type="text" name="libelle" formControlName="libelle" class="form-control">
+            <input type="text" name="libelle" [formControlName]="'libelle'" class="form-control">
             <br>
             <button class="bg-primary form-control text-light font-weight-bold" type="submit">
                 Ajouter Profil
