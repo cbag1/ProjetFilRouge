@@ -25,7 +25,10 @@
                         <th> {{ user.prenom }} </th>
                         <th> {{ user.nom }} </th>
                         <th> {{ user.username }} </th>
-                        <th> <a [routerLink]="['/admin/updateUser', user.id]" routerLinkActive="router-link-active"> Modifier </a>
+                        <th> <a [routerLink]="['/admin/updateUser', user.id]" routerLinkActive="router-link-active">
+                                Modifier </a>
+                            <button type="button" (click)="delete(user)"
+                                style="border: none; color: red;"> Supprimer </button>
                         </th>
 
                         <!-- <th><i class="fas fa-pencil-alt"></i> </th> -->

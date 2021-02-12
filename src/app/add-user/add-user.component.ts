@@ -30,10 +30,13 @@ export class AddUserComponent implements OnInit {
       this.users = res['hydra:member'];
       // this.profils = Array.of(this.profils);
       // console.log("test users");
+      
       console.log(this.users);
       // console.log(this.users);
     })
   }
+
+  
 
 
 
@@ -48,6 +51,11 @@ export class AddUserComponent implements OnInit {
       profil: new FormControl(),
       avatar: new FormControl()
     })
+  }
+
+  delete(user){
+    this.authservice.deleteUser(user.id).subscribe();
+    this.initUsers();
   }
 
   addProcess() {

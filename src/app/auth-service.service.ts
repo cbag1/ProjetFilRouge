@@ -39,7 +39,7 @@ export class AuthServiceService {
   }
 
   getUsers() {
-    return this.http.get('http://localhost:8000/api/admin/users');
+    return this.http.get('http://localhost:8000/api/admin/users?archive=false');
   }
 
   addUser(data) {
@@ -51,7 +51,12 @@ export class AuthServiceService {
     return this.http.put(`/api/admin/users/${id}`, data);
   }
 
-  getbyId(id: number) {
+  deleteUser(id: number)
+  {
+    return this.http.delete(`/api/admin/users/${id}`);
+  }
+
+  getbyOne(id: number) {
     return this.http.get(`/api/admin/users/${id}`);
   }
 

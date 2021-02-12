@@ -14,6 +14,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { MenuVerticalParametresComponent } from './menu-vertical-parametres/menu-vertical-parametres.component';
 import { MenuVerticalUserComponent } from './menu-vertical-user/menu-vertical-user.component';
 import { MenuVerticalComponent } from './menu-vertical/menu-vertical.component';
+import { UserResolverService } from './user-resolver.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
@@ -28,7 +29,7 @@ const routes: Routes = [
       { path: 'menuParametres', component: MenuVerticalParametresComponent, outlet: 'menuvertical' },
       { path: 'profilsortie', component: ProfilSortieComponent },
       { path: 'groupetags', component: GroupeTagsComponent },
-      { path: 'updateUser', component: UpdateUserComponent},
+      { path: 'updateUser/:id', component: UpdateUserComponent,data: {breadcrumb: ''} , resolve: {user: UserResolverService}},
       { path: 'groupecompetences', component: GrpeCompetenceComponent },
       { path: 'referentiels', component: ReferentielComponent },
       { path: 'promos', component: PromosComponent }
