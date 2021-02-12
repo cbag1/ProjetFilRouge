@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddUserComponent } from './add-user/add-user.component';
+import { GenererQrComponent } from './add-user/generer-qr/generer-qr.component';
 import { AdminComponent } from './admin/admin.component';
 import { CompetencesComponent } from './admin/competences/competences.component';
 import { GroupeTagsComponent } from './admin/groupe-tags/groupe-tags.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
       { path: 'profilsortie', component: ProfilSortieComponent },
       { path: 'groupetags', component: GroupeTagsComponent },
       { path: 'updateUser/:id', component: UpdateUserComponent,data: {breadcrumb: ''} , resolve: {user: UserResolverService}},
+      { path: 'genererQrUser/:id', component: GenererQrComponent,data: {breadcrumb: ''} , resolve: {user: UserResolverService}},
       { path: 'groupecompetences', component: GrpeCompetenceComponent },
       { path: 'referentiels', component: ReferentielComponent },
       { path: 'promos', component: PromosComponent }

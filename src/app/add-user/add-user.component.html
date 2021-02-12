@@ -5,11 +5,13 @@
         <div class="row">
             <div class="col-md-11">
                 <h2 class="text-center pt-5"> Liste des Utilisateurs</h2>
+                <button (click)="createPdf()" class="btn btn-sm btn-outline-primary mb-2" style="float:left;"
+                    text="Download PDF">Creer un pdf</button>
             </div>
             <div class="col-md-1"><i class="fa fa-user" aria-hidden="true"></i></div>
         </div>
         <div class="row">
-            <table class="table table-bordered table-light">
+            <table id="users" class="table table-bordered table-light">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -27,8 +29,11 @@
                         <th> {{ user.username }} </th>
                         <th> <a [routerLink]="['/admin/updateUser', user.id]" routerLinkActive="router-link-active">
                                 Modifier </a>
-                            <button type="button" (click)="delete(user)"
-                                style="border: none; color: red;"> Supprimer </button>
+                            <a [routerLink]="['/admin/genererQrUser', user.id]" routerLinkActive="router-link-active"
+                                style="border: none; color: green;">
+                                Generer Qr </a>
+                            <button type="button" (click)="delete(user  )" style="border: none; color: red;"> Supprimer
+                            </button>
                         </th>
 
                         <!-- <th><i class="fas fa-pencil-alt"></i> </th> -->

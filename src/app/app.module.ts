@@ -23,7 +23,8 @@ import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UpdateUserComponent } from './admin/update-user/update-user.component';
 import { CommonModule } from '@angular/common';
-
+import { QRCodeModule } from 'angularx-qrcode';
+import { GenererQrComponent } from './add-user/generer-qr/generer-qr.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +43,11 @@ import { CommonModule } from '@angular/common';
     GroupeTagsComponent,
     ReferentielComponent,
     PromosComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    GenererQrComponent
   ],
   imports: [
+    QRCodeModule,
     BrowserModule,
     CommonModule,
     AppRoutingModule,

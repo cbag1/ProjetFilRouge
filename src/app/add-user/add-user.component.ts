@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
 import { User } from './user.model';
+import * as jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 @Component({
   selector: 'app-add-user',
@@ -22,21 +24,21 @@ export class AddUserComponent implements OnInit {
     console.log("cool");
     this.initForm();
     this.initUsers();
-    
+
   }
 
-  initUsers(){
+  initUsers() {
     this.authservice.getUsers().subscribe(res => {
       this.users = res['hydra:member'];
       // this.profils = Array.of(this.profils);
       // console.log("test users");
-      
+
       console.log(this.users);
       // console.log(this.users);
     })
   }
 
-  
+
 
 
 
@@ -53,7 +55,7 @@ export class AddUserComponent implements OnInit {
     })
   }
 
-  delete(user){
+  delete(user) {
     this.authservice.deleteUser(user.id).subscribe();
     this.initUsers();
   }
@@ -91,6 +93,22 @@ export class AddUserComponent implements OnInit {
     //   )
     // }
   }
+
+  createPdf() {
+    let doc = new jsPDF.jsPDF();
+    doc.setFontSize(18);
+    doc.text('Liste des Utilisateurs', 11, 8);
+    doc.setFontSize(11);
+    doc.setTextColor(100);
+    (doc as any).autoTable({
+      html: '#users'
+    });
+    // below line for Open PDF document in new tab
+    doc.output('dataurlnewwindow');
+    // below line for Download PDF document
+    doc.save('listeUsers.pdf');
+  }
+
 
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
