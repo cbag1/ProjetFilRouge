@@ -33,6 +33,16 @@ export class AuthServiceService {
     return this.http.get('http://localhost:8000/api/admin/profils');
   }
 
+  getCompetences() {
+    return this.http.get('http://localhost:8000/api/admin/competences');
+  }
+
+
+  addCompetence(data)
+   {
+    return this.http.post('http://localhost:8000/api/admin/competences', data);
+  }
+
   addProfil(data) {
     // @ts-ignore
     return this.http.post('http://localhost:8000/api/admin/profils', data);
@@ -51,8 +61,7 @@ export class AuthServiceService {
     return this.http.put(`/api/admin/users/${id}`, data);
   }
 
-  deleteUser(id: number)
-  {
+  deleteUser(id: number) {
     return this.http.delete(`/api/admin/users/${id}`);
   }
 

@@ -9,43 +9,38 @@
         </div>
         <div class="row">
             <div class="col-md-5 border border-primary pt-2">
-                <div class="row">
-                    <select name="listCompetences" id="" class="form-control">
-                        <option value="">Développer le front d'une application </option>
-                        <option value="">Développer le back d'une application </option>
-                        <option value="">Développer le front d'une application </option>
-                        <option value="">Développer le back d'une application </option>
-                    </select>
-                </div>
-                <div class="row ">
-                    <ul class="list-unstyled">
-                        <li> Maquetter une application</li>
-                        <li>Developper une interface Web Dynamique</li>
-                        <li>Réaliser une interface avec un CMS</li>
-                        <li>Réaliser une interface web responsive</li>
-                    </ul>
 
-                </div>
-            </div>
-            <div class="col-md-7 border border-primary pt-2">
-                <ul class="nav nav-pills ">
-                    <li class="active p-3"><a data-toggle="tab" href="#niveau1">Niveau 1</a></li>
-                    <li class="p-3"><a data-toggle="tab" href="#niveau2">Niveau 2</a></li>
-                    <li class="p-3"><a data-toggle="tab" href="#niveau2">Niveau 3</a></li>
+                <ul class="" *ngFor="let competence of competences; let i=index">
+                    <li class="nav-link"><button class="border-0" (click)="afficherniveau(i)"> {{ competence.libelle }}
+                        </button></li>
                 </ul>
 
-                <div class="tab-content">
-                    <div id="niveau1" class="tab-pane fade in active">
+            </div>
+            <div class="col-md-7 border border-primary pt-2" *ngIf="watchniveau">
+                <nav>
+                    <div class="nav nav-tabs  nav-fill" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active " id="nav-home-tab" data-toggle="tab" href="#niveau0"
+                            role="tab" aria-controls="nav-home" aria-selected="true"
+                            (click)="niveaucliquer()">Niveau1</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#niveau1" role="tab"
+                            aria-controls="nav-profile" aria-selected="false" (click)="niveaucliquer()">Niveau2</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#niveau2" role="tab"
+                            aria-controls="nav-contact" aria-selected="false" (click)="niveaucliquer()">Niveau3</a>
+                    </div>
+                </nav>
+                <br>
+                <div class="tab-content" id="nav-tabContent">
+                    <div *ngFor="let niveau of niveaux; let i=index" id="{{'niveau'+i}}" class="tab-pane fade in active"
+                        role="tabpanel">
 
-                        <div class="row">
+                        <div class="row" *ngIf="clickniveau">
                             <div class="col-6 ">
                                 <div class="card">
                                     <div class="card-header">
-                                        Groupe d'actions
+                                        Groupe d'actions à realiser
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Lorem ipsum dolor sit amet
-                                            test test test test tempore cumque reprehenderit impedit vero.</li>
+                                        <li class="list-group-item"> {{ niveau.description }} </li>
 
                                     </ul>
                                 </div>
@@ -53,11 +48,12 @@
                             <div class="col-6">
                                 <div class="card">
                                     <div class="card-header ">
-                                        Groupe d'actions
+                                        Criteres D'évaluation
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Lorem ipsum dolor sit amet
-                                            test test test test tempore cumque reprehenderit impedit vero.</li>
+                                        <li class="list-group-item">
+                                            {{ niveau.critereEvaluation }}
+                                        </li>
 
                                     </ul>
                                 </div>
@@ -65,101 +61,131 @@
                         </div>
 
                     </div>
-                    <div id="niveau2" class="tab-pane fade">
-                        <div class="row">
-                            <div class="col-6 ">
-                                <div class="card">
-                                    <div class="card-header">
-                                        Groupe d'actions
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Lorem ipsum dolor sit amet
-                                            test test test test tempore cumque reprehenderit impedit vero.</li>
 
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="card">
-                                    <div class="card-header ">
-                                        Groupe d'actions
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Lorem ipsum dolor sit amet
-                                            test test test test tempore cumque reprehenderit impedit vero.</li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="niveau3" class="tab-pane fade">
-                        <div class="row">
-                            <div class="col-6 ">
-                                <div class="card">
-                                    <div class="card-header">
-                                        Groupe d'actions
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Lorem ipsum dolor sit amet
-                                            test test test test tempore cumque reprehenderit impedit vero.</li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="card">
-                                    <div class="card-header ">
-                                        Groupe d'actions
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Lorem ipsum dolor sit amet
-                                            test test test test tempore cumque reprehenderit impedit vero.</li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
+                <div class="tab-content">
 
-                <br>
+
+
+                </div>
+
             </div>
+
         </div>
+        <br>
+
     </div>
     <div class="col-3">
 
         <h4>Ajouter Competences</h4>
         <br>
 
-        <label for="gcompt">Groupe de Competences</label>
+        <form action="" [formGroup]="addCompetencesForm" (ngSubmit)="addProcess()">
+            <label for="libelle">Libelle</label>
+            <input type="text" name="libelle" [formControlName]="'libelle'" class="form-control">
+            <br>
+            <label for="description">Description</label>
+            <input type="text" name="description" [formControlName]="'description'" class="form-control">
+            <br>
 
-        <select name="listCompetences" id="" class="form-control">
-            <option value="">Développer le front d'une application </option>
-            <option value="">Développer le back d'une application </option>
-            <option value="">Développer le front d'une application </option>
-            <option value="">Développer le back d'une application </option>
-        </select>
 
-        <label for="libelle">Libelle</label>
-        <input type="text" name="libelle" class="form-control" id="libelle">
-        <br>
 
-        <span class="border border-primary bg-primary p-1 text-light">Niveau 1</span>
-        <span class="border border-primary bg-secondary p-1">Niveau 2</span>
-        <span class="border border-primary bg-secondary p-1">Niveau 3</span>
-        <br>
-        <br>
-        <label for="gpaction">Groupe d'actions à realiser</label>
-        <textarea class="form-control" id="egpaction" rows=""></textarea>
 
-        <label for="gpaction"> Criteres d'evaluation </label>
-        <textarea class="form-control" id="egpaction" rows=""></textarea>
+            <nav>
+                <div class="nav nav-tabs " id="nav-tab" role="tablist" >
+                    <a (click)="addNiveaux();" class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#addniveau0"
+                        role="tab"  aria-selected="true">Niveau1</a>
+                    <a (click)="addNiveaux();" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#addniveau1" role="tab"
+                        aria-selected="false">Niveau2</a>
+                    <a (click)="addNiveaux();" class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#addniveau2" role="tab"
+                         aria-selected="false">Niveau3</a>
+                </div>
+            </nav>
 
-        <br>
-        <button class="bg-primary form-control text-light font-weight-bold" type="submit"> Soumettre </button>
+            <div class="tab-content" id="nav-tabContent" >
+                <div class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab" formArrayName="niveaux"
+                    *ngFor="let niveau of addCompetencesForm.controls.niveaux?.value; let i = index" id="{{'addniveau'+i }}">
 
+                    <div [formGroupName]="i">
+                        {{ i }}
+                        <label for="" class="form-label">Action</label>
+                        <input type="text" formControlName="description" class="form-control"/>
+                        <label for="">Critere Evaluation</label>
+                        <input type="text" formControlName="critereEvaluation" class="form-control"/>
+                    </div>
+
+                </div>
+                <!-- <div class="tab-pane fade show active" id="addniveau0" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <label for="compaction">Groupe d'actions à realiser </label>
+                    <textarea class="form-control" id="compaction" rows="" [formControlName]="'niv1grp'"></textarea>
+                    <label for="compcritere"> Criteres d'evaluation </label>
+                    <textarea class="form-control" id="compcritere" rows=""
+                        [formControlName]="'niv1critere'"></textarea>.
+                </div>
+                <div class="tab-pane fade" id="addniveau1" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <label for="compaction">Groupe d'actions à realiser </label>
+                    <textarea class="form-control" id="compaction" rows="" [formControlName]="'niv2grp'"></textarea>
+                    <label for="compcritere"> Criteres d'evaluation </label>
+                    <textarea class="form-control" id="compcritere" rows=""
+                        [formControlName]="'niv2critere'"></textarea>
+                </div>
+                <div class="tab-pane fade" id="addniveau2" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <label for="compaction">Groupe d'actions à realiser </label>
+                    <textarea class="form-control" id="compaction" rows="" [formControlName]="'niv3grp'"></textarea>
+                    <label for="compcritere"> Criteres d'evaluation </label>
+                    <textarea class="form-control" id="compcritere" rows=""
+                        [formControlName]="'niv3critere'"></textarea>
+                </div> -->
+            </div>
+            <!-- <button id="add" type="button" (click)="addNiveaux();">+++ Niveau</button> -->
+            <br>
+            <button class="bg-primary form-control text-light font-weight-bold" type="submit">
+                Ajouter Competences
+            </button>
+        </form>
+
+        <!-- 
+        <form action="" [formGroup]="addCompetencesForm" (ngSubmit)="addProcess()">
+
+            <label for="libelle">Libelle</label>
+            <input type="text" name="libelle" class="form-control" id="libelle">
+            <br>
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#addniveau0"
+                        role="tab" aria-controls="nav-home" aria-selected="true">Niveau1</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#addniveau1" role="tab"
+                        aria-controls="nav-profile" aria-selected="false">Niveau2</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#addniveau2" role="tab"
+                        aria-controls="nav-contact" aria-selected="false">Niveau3</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="addniveau0" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <label for="compaction">Groupe d'actions à realiser </label>
+                    <textarea class="form-control" id="compaction" rows="" [formControl]="niv1grp"></textarea>
+                    <label for="compcritere"> Criteres d'evaluation </label>
+                    <textarea class="form-control" id="compcritere" rows="" [formControl]="niv1critere"></textarea>.
+                </div>
+                <div class="tab-pane fade" id="addniveau1" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <label for="compaction">Groupe d'actions à realiser </label>
+                    <textarea class="form-control" id="compaction" rows="" [formControl]="niv2grp"></textarea>
+                    <label for="compcritere"> Criteres d'evaluation </label>
+                    <textarea class="form-control" id="compcritere" rows="" [formControl]="niv2critere"></textarea>
+                </div>
+                <div class="tab-pane fade" id="addniveau2" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <label for="compaction">Groupe d'actions à realiser </label>
+                    <textarea class="form-control" id="compaction" rows="" [formControl]="niv3grp"></textarea>
+                    <label for="compcritere"> Criteres d'evaluation </label>
+                    <textarea class="form-control" id="compcritere" rows="" [formControl]="niv3critere"></textarea>
+                </div>
+            </div>
+
+            <br>
+            <button class="bg-primary form-control text-light font-weight-bold" type="submit"> Soumettre </button>
+        </form> -->
     </div>
 
 </div>
