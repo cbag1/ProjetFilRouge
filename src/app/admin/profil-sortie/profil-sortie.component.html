@@ -13,25 +13,16 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Libelle</th>
+                        <th scope="col"> Actions</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Developpeur Front End</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Developpeur Back End</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Community Manager</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td> Data Analyste </td>
+                    <tr *ngFor="let profil of profils">
+                        <th scope="row"> {{ profil.id }} </th>
+                        <th> {{ profil.libelle }} </th>
+                        <!-- <th><i class="fas fa-pencil-alt"></i> </th> -->
+
                     </tr>
 
                 </tbody>
@@ -43,10 +34,14 @@
 
     <div class="col-2 text-center pt-5 ml-5">
         <h3>Ajouter Profil de Sortie</h3>
-        <label for="libelle">Libelle</label>
-        <input type="text" name="libelle" class="form-control">
-        <br>
-        <button class="bg-primary form-control text-light font-weight-bold" type="submit">Ajouter Profil</button>
+        <form action="" [formGroup]="addProfilSortieForm" (ngSubmit)="addProcess()">
+            <label for="libelle">Libelle</label>
+            <input class="form-control" type="text" name="libelle" id="libelle" [formControlName]="'libelle'">
+            <br>
+            <button class="bg-primary form-control text-light font-weight-bold" type="submit">Ajouter Profil</button>
+        </form>
+
+
     </div>
 
 </div>

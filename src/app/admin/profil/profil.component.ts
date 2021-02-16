@@ -13,6 +13,7 @@ export class ProfilComponent implements OnInit {
 
   profils: Profil = {};
   addProfilForm: FormGroup;
+  archive: boolean = false;
 
 
   constructor(private authservice: AuthServiceService) { }
@@ -34,11 +35,11 @@ export class ProfilComponent implements OnInit {
     })
   }
 
-    initForm() {
-      this.addProfilForm = new FormGroup({
-        libelle: new FormControl('', [Validators.required]),
-      })
-    }
+  initForm() {
+    this.addProfilForm = new FormGroup({
+      libelle: new FormControl('', [Validators.required]),
+    })
+  }
 
 
   addProcess() {

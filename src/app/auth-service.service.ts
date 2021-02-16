@@ -33,6 +33,15 @@ export class AuthServiceService {
     return this.http.get('http://localhost:8000/api/admin/profils');
   }
 
+  getProfilSortie() {
+    return this.http.get('http://localhost:8000/api/admin/profil_sorties');
+  }
+
+  addProfilSortie(data) {
+    return this.http.post('http://localhost:8000/api/admin/profil_sorties',data);
+  }
+
+
   getCompetences() {
     return this.http.get('http://localhost:8000/api/admin/competences');
   }
